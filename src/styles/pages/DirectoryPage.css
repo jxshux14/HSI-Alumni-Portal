@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =============================================
+   GLOBAL STYLES & CONTAINER
+============================================= */
+.directory-container {
+  padding: 1.5rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* =============================================
+   FILTER & SEARCH SECTION
+============================================= */
+.filter-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Top and bottom rows of the filter area */
+.filter-top-row,
+.filter-bottom-row {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.filter-top-row {
+  border-bottom: 2px solid #e5e7eb;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.filter-bottom-row {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Search Input */
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  outline: 2px solid #DAB619;
+  border-color: #DAB619;
+}
+
+/* Selection Box */
+.selection-box {
+  width: 30%;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+}
+
+select:focus {
+  outline: 2px solid #DAB619;
+  border-color: #DAB619;
+}
+
+/* Filter Buttons */
+.filter-actions {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn-yellow,
+.btn-gray {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-yellow {
+  background-color: #DAB619;
+  color: white;
+}
+
+.btn-yellow:hover {
+  background-color: #c9a317;
+}
+
+.btn-gray {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.btn-gray:hover {
+  background-color: #e5e7eb;
+}
+
+/* =============================================
+   EMPLOYEE GRID
+============================================= */
+.employees-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .employees-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .employees-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =============================================
+   EMPLOYEE CARD
+============================================= */
+.employee-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
+}
+
+.employee-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+}
+
+/* Position */
+.employee-position {
+  font-size: 0.95rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* Header with Photo */
+.employee-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.employee-photo-wrapper {
+  flex-shrink: 0;
+}
+
+.employee-photo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #DAB619;
+}
+
+.employee-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.employee-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.employee-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employee-department {
+  color: #000000;
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+/* Credentials */
+.credentials-section {
+  margin-bottom: 1.5rem;
+}
+
+.credentials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.credential-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.credential-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #22c55e;
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.credential-text {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.4;
+}
+
+/* Skills */
+.skills-section {
+  margin-bottom: auto;
+  min-height: 80px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 40px;
+}
+
+.skill-badge {
+  padding: 0.5rem 1rem;
+  background-color: #EDEDED;
+  color: #6E6127;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: background-color 0.2s;
+  cursor: default;
+  border: 1px solid #AAA9A9;
+}
+
+.skill-badge:hover {
+  background-color: rgba(223, 189, 41, 0.534);
+}
+
+/* Action Buttons */
+.action-buttons-container {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.view-profile-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background-color: #DAB619;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.view-profile-btn:hover {
+  background-color: #c9a317;
+  transform: translateY(-2px);
+}
+
+.connect-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #DAB619;
+  color: #DAB619;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.connect-btn:hover {
+  background-color: #DAB619;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   PAGINATION
+============================================= */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 1rem 0;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  border-radius: 0.375rem;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-prev {
+  margin-right: 0.5rem;
+}
+
+.pagination-next {
+  margin-left: 0.5rem;
+}
+
+.pagination-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  border-radius: 0.375rem;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.pagination-number:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.pagination-number.active {
+  background-color: #DAB619;
+  color: white;
+  border-color: #DAB619;
+}
+
+.pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* =============================================
+   NO RESULTS MESSAGE
+============================================= */
+.search-results-container {
+  margin-top: 2rem;
+  display: none;
+}
+
+.search-results-container.visible {
+  display: block;
+}
+
+.search-results-box {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+}
+
+.search-results-content {
+  text-align: center;
+}
+
+.search-results-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.search-results-subtitle {
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+/* =============================================
+   CARDS
+============================================= */
+.employee-position-container {
+  margin-bottom: 1.5rem;
+}
+
+.position-status-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.employee-position {
+  font-size: 0.90rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+  min-width: 0; /* Allow text to truncate if needed */
+}
+
+.status-badge-right {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1.5px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: 1.5rem;
+}
+
+/* Status-specific colors (backup in case inline styles don't work) */
+.status-badge-right.active {
+  color: #199a08;
+  border-color: #199a08;
+  background-color: #f0fdf0;
+}
+
+.status-badge-right.inactive {
+  color: #dc2626;
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.status-badge-right.on-leave {
+  color: #d97706;
+  border-color: #d97706;
+  background-color: #fffbeb;
+}
+
+.status-badge-right.remote {
+  color: #2563eb;
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+/* Adjust for mobile responsiveness */
+@media (max-width: 640px) {
+  .position-status-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .status-badge-right {
+    align-self: flex-end;
+  }
+  
+  .employee-position {
+    font-size: 0.85rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .position-status-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .status-badge-right {
+    align-self: flex-start;
+    width: fit-content;
+  }
+}
+
+/* =============================================
+   RESPONSIVE STYLES
+============================================= */
+@media (max-width: 768px) {
+  /* Filter rows */
+  .filter-top-row,
+  .filter-bottom-row {
+    flex-direction: column;
+  }
+  
+  .selection-box {
+    width: 100%;
+  }
+  
+  .filter-actions {
+    flex-direction: column;
+  }
+  
+  /* Employee card */
+  .employee-photo {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .employee-name {
+    font-size: 1.25rem;
+  }
+  
+  /* Pagination */
+  .pagination {
+    padding: 0.5rem 1rem;
+  }
+  
+  .pagination-number,
+  .pagination-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  /* Adjust grid for mobile */
+  .employees-grid {
+    gap: 1rem;
+  }
+  
+  .employee-card {
+    padding: 1.25rem;
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 640px) {
+  .directory-container {
+    padding: 1rem;
+  }
+  
+  .directory-title {
+    font-size: 1.5rem;
+  }
+  
+  .filter-wrapper {
+    margin-bottom: 1.5rem;
+  }
+}
