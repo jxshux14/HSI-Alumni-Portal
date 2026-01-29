@@ -6,13 +6,9 @@ import DirectoryHeader from '../components/DirectoryNetworkingComponents/Directo
 import EmployeeCard from '../components/DirectoryNetworkingComponents/EmployeeCards.jsx';
 import SelectionBox from '../components/DirectoryNetworkingComponents/SelectionBox.jsx';
 import '../styles/pages/DirectoryPage.css';
-// Import employee photos
-import billGatesPhoto from '../assets/img/billgates.jpg';
-import satyaNadellaPhoto from '../assets/img/billgates.jpg';
-import evanYouPhoto from '../assets/img/billgates.jpg';
-import sarahConnorPhoto from '../assets/img/billgates.jpg';
-import andrewNgPhoto from '../assets/img/billgates.jpg';
-import sherylSandbergPhoto from '../assets/img/billgates.jpg';
+
+// Fixed photo URL for all employees
+const EMPLOYEE_PHOTO_URL = 'https://tse4.mm.bing.net/th/id/OIP.l96pfbLLzrd2hc-WZhDdtAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3';
 
 export default function DirectoryPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,373 +18,372 @@ export default function DirectoryPage() {
   const [role, setRole] = useState('');
   const [tag, setTag] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6); // Show 6 employees per page
-
-  
+  const [itemsPerPage] = useState(6);
 
   const employees = [
-  {
-    id: 1,
-    position: "Senior Frontend Developer",
-    name: "Bill Gates",
-    department: "Web Development Department",
-    credentials: [
-      "Best Portfolio Website – Regional Web Creators Summit 2024",
-      "Outstanding Frontend Developer Award – DevConnect Conference"
-    ],
-    skills: ["Python", "JavaScript", "HTML", "PHP", "Laravel"],
-    photo: billGatesPhoto,
-    status: "active",
-    role: "developer",
-    tags: ["leadership", "mentor"]
-  },
-  {
-    id: 2,
-    position: "Senior Backend Engineer",
-    name: "Satya Nadella",
-    department: "Cloud Services Department",
-    credentials: [
-      "Azure Cloud Excellence Award 2024",
-      "Most Scalable System Architecture 2023"
-    ],
-    skills: ["C#", ".NET", "Azure", "SQL", "Docker"],
-    photo: satyaNadellaPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["leadership", "innovator"]
-  },
-  {
-    id: 3,
-    position: "UX/UI Designer",
-    name: "Evan You",
-    department: "Product Design Department",
-    credentials: [
-      "Best User Interface Award 2024",
-      "Design Innovation Recognition"
-    ],
-    skills: ["Figma", "Adobe XD", "Vue.js", "CSS", "Illustrator"],
-    photo: evanYouPhoto,
-    status: "remote",
-    role: "designer",
-    tags: ["innovator", "collaborator"]
-  },
-  {
-    id: 4,
-    position: "DevOps Engineer",
-    name: "Sarah Connor",
-    department: "Infrastructure Department",
-    credentials: [
-      "Infrastructure Automation Excellence 2024",
-      "Zero Downtime Achievement"
-    ],
-    skills: ["Kubernetes", "AWS", "Terraform", "CI/CD", "Linux"],
-    photo: sarahConnorPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["collaborator", "innovator"]
-  },
-  {
-    id: 5,
-    position: "Data Scientist",
-    name: "Andrew Ng",
-    department: "AI Research Department",
-    credentials: [
-      "Machine Learning Breakthrough Award",
-      "AI Research Paper of the Year"
-    ],
-    skills: ["Python", "TensorFlow", "PyTorch", "R", "SQL"],
-    photo: andrewNgPhoto,
-    status: "on-leave",
-    role: "engineer",
-    tags: ["mentor", "leadership"]
-  },
-  {
-    id: 6,
-    position: "Product Manager",
-    name: "Sheryl Sandberg",
-    department: "Product Management Department",
-    credentials: [
-      "Product Launch Excellence Award",
-      "User Growth Achievement"
-    ],
-    skills: ["Agile", "JIRA", "SQL", "Analytics", "Strategy"],
-    photo: sherylSandbergPhoto,
-    status: "active",
-    role: "manager",
-    tags: ["leadership", "collaborator"]
-  },
+    {
+      id: 1,
+      position: "Senior Frontend Developer",
+      name: "Bill Gates",
+      department: "Web Development Department",
+      credentials: [
+        "Best Portfolio Website – Regional Web Creators Summit 2024",
+        "Outstanding Frontend Developer Award – DevConnect Conference"
+      ],
+      skills: ["Python", "JavaScript", "HTML", "PHP", "Laravel"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "developer",
+      tags: ["leadership", "mentor"]
+    },
+    {
+      id: 2,
+      position: "Senior Backend Engineer",
+      name: "Satya Nadella",
+      department: "Cloud Services Department",
+      credentials: [
+        "Azure Cloud Excellence Award 2024",
+        "Most Scalable System Architecture 2023"
+      ],
+      skills: ["C#", ".NET", "Azure", "SQL", "Docker"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["leadership", "innovator"]
+    },
+    {
+      id: 3,
+      position: "UX/UI Designer",
+      name: "Evan You",
+      department: "Product Design Department",
+      credentials: [
+        "Best User Interface Award 2024",
+        "Design Innovation Recognition"
+      ],
+      skills: ["Figma", "Adobe XD", "Vue.js", "CSS", "Illustrator"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "remote",
+      role: "designer",
+      tags: ["innovator", "collaborator"]
+    },
+    {
+      id: 4,
+      position: "DevOps Engineer",
+      name: "Sarah Connor",
+      department: "Infrastructure Department",
+      credentials: [
+        "Infrastructure Automation Excellence 2024",
+        "Zero Downtime Achievement"
+      ],
+      skills: ["Kubernetes", "AWS", "Terraform", "CI/CD", "Linux"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["collaborator", "innovator"]
+    },
+    {
+      id: 5,
+      position: "Data Scientist",
+      name: "Andrew Ng",
+      department: "AI Research Department",
+      credentials: [
+        "Machine Learning Breakthrough Award",
+        "AI Research Paper of the Year"
+      ],
+      skills: ["Python", "TensorFlow", "PyTorch", "R", "SQL"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "on-leave",
+      role: "engineer",
+      tags: ["mentor", "leadership"]
+    },
+    {
+      id: 6,
+      position: "Product Manager",
+      name: "Sheryl Sandberg",
+      department: "Product Management Department",
+      credentials: [
+        "Product Launch Excellence Award",
+        "User Growth Achievement"
+      ],
+      skills: ["Agile", "JIRA", "SQL", "Analytics", "Strategy"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "manager",
+      tags: ["leadership", "collaborator"]
+    },
+    {
+      id: 7,
+      position: "Mobile App Developer",
+      name: "Tim Cook",
+      department: "Mobile Development Department",
+      credentials: [
+        "Best Mobile App 2024",
+        "iOS Development Excellence Award"
+      ],
+      skills: ["Swift", "Kotlin", "React Native", "Firebase", "XCode"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "developer",
+      tags: ["innovator", "collaborator"]
+    },
+    {
+      id: 8,
+      position: "Security Analyst",
+      name: "Kevin Mitnick",
+      department: "Cybersecurity Department",
+      credentials: [
+        "Security Excellence Award 2024",
+        "Zero Vulnerability Detection"
+      ],
+      skills: ["Penetration Testing", "Network Security", "SIEM", "Cryptography", "Firewalls"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["innovator"]
+    },
+    {
+      id: 9,
+      position: "Database Administrator",
+      name: "Michael Stonebraker",
+      department: "Data Management Department",
+      credentials: [
+        "Database Optimization Award 2024",
+        "Data Integrity Excellence"
+      ],
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "SQL Server"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["mentor"]
+    },
+    {
+      id: 10,
+      position: "QA Automation Engineer",
+      name: "James Bach",
+      department: "Quality Assurance Department",
+      credentials: [
+        "Quality Excellence Award 2024",
+        "Zero Production Bugs 2023"
+      ],
+      skills: ["Selenium", "Cypress", "Jest", "TestRail", "JIRA"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "remote",
+      role: "engineer",
+      tags: ["collaborator", "innovator"]
+    },
+    {
+      id: 11,
+      position: "Business Analyst",
+      name: "Indra Nooyi",
+      department: "Business Operations Department",
+      credentials: [
+        "Business Process Improvement Award",
+        "Stakeholder Satisfaction Excellence"
+      ],
+      skills: ["Business Analysis", "Process Mapping", "SQL", "Tableau", "Power BI"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "manager",
+      tags: ["leadership", "collaborator"]
+    },
+    {
+      id: 12,
+      position: "Technical Writer",
+      name: "Ann Handley",
+      department: "Documentation Department",
+      credentials: [
+        "Best Technical Documentation 2024",
+        "Clarity and Precision Award"
+      ],
+      skills: ["Technical Writing", "Markdown", "Git", "Documentation", "API Docs"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "designer",
+      tags: ["collaborator"]
+    },
+    {
+      id: 13,
+      position: "Full Stack Developer",
+      name: "Guido van Rossum",
+      department: "Web Development Department",
+      credentials: [
+        "Full Stack Excellence Award 2024",
+        "Python Contribution Recognition"
+      ],
+      skills: ["Python", "Django", "React", "PostgreSQL", "Docker"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "developer",
+      tags: ["innovator", "mentor"]
+    },
+    {
+      id: 14,
+      position: "Cloud Architect",
+      name: "Werner Vogels",
+      department: "Cloud Services Department",
+      credentials: [
+        "Cloud Architecture Excellence",
+        "Scalability Design Award"
+      ],
+      skills: ["AWS", "Terraform", "Kubernetes", "Microservices", "CI/CD"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["leadership", "innovator"]
+    },
+    {
+      id: 15,
+      position: "Scrum Master",
+      name: "Jeff Sutherland",
+      department: "Agile Department",
+      credentials: [
+        "Scrum Implementation Excellence",
+        "Team Productivity Award"
+      ],
+      skills: ["Scrum", "Agile", "JIRA", "Team Leadership", "Retrospectives"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "manager",
+      tags: ["leadership", "collaborator"]
+    },
+    {
+      id: 16,
+      position: "Machine Learning Engineer",
+      name: "Yoshua Bengio",
+      department: "AI Research Department",
+      credentials: [
+        "ML Innovation Award 2024",
+        "Research Paper of the Year"
+      ],
+      skills: ["Python", "TensorFlow", "PyTorch", "MLOps", "Data Science"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["innovator", "mentor"]
+    },
+    {
+      id: 17,
+      position: "IT Support Specialist",
+      name: "Kevin Systrom",
+      department: "IT Support Department",
+      credentials: [
+        "Customer Satisfaction Award",
+        "Fast Resolution Excellence"
+      ],
+      skills: ["Helpdesk", "Networking", "Hardware", "Windows/Mac", "Ticketing"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "inactive",
+      role: "engineer",
+      tags: ["collaborator"]
+    },
+    {
+      id: 18,
+      position: "Sales Engineer",
+      name: "Marc Benioff",
+      department: "Sales Department",
+      credentials: [
+        "Top Sales Performance 2024",
+        "Technical Sales Excellence"
+      ],
+      skills: ["Sales", "CRM", "Technical Demos", "Product Knowledge", "Negotiation"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "manager",
+      tags: ["leadership"]
+    },
+    {
+      id: 19,
+      position: "Content Strategist",
+      name: "Seth Godin",
+      department: "Marketing Department",
+      credentials: [
+        "Content Strategy Award 2024",
+        "Best Marketing Campaign"
+      ],
+      skills: ["Content Strategy", "SEO", "Social Media", "Copywriting", "Analytics"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "remote",
+      role: "designer",
+      tags: ["innovator"]
+    },
+    {
+      id: 20,
+      position: "Systems Administrator",
+      name: "Linus Torvalds",
+      department: "Infrastructure Department",
+      credentials: [
+        "Systems Excellence Award",
+        "Infrastructure Reliability"
+      ],
+      skills: ["Linux", "Bash", "Networking", "Virtualization", "Monitoring"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "engineer",
+      tags: ["innovator", "mentor"]
+    },
+    {
+      id: 21,
+      position: "Product Designer",
+      name: "Jony Ive",
+      department: "Product Design Department",
+      credentials: [
+        "Design Excellence Award 2024",
+        "User Experience Innovation"
+      ],
+      skills: ["Figma", "Sketch", "Prototyping", "User Research", "UI/UX"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "inactive",
+      role: "designer",
+      tags: ["innovator", "collaborator"]
+    },
+    {
+      id: 22,
+      position: "Data Engineer",
+      name: "DJ Patil",
+      department: "Data Management Department",
+      credentials: [
+        "Data Engineering Excellence",
+        "ETL Pipeline Innovation"
+      ],
+      skills: ["Python", "Spark", "Airflow", "SQL", "Data Warehousing"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "inactive",
+      role: "engineer",
+      tags: ["innovator"]
+    },
+    {
+      id: 23,
+      position: "HR Technology Specialist",
+      name: "Reid Hoffman",
+      department: "HR Department",
+      credentials: [
+        "HR Tech Implementation Award",
+        "Employee Experience Innovation"
+      ],
+      skills: ["HRIS", "Workday", "Recruitment Systems", "Analytics", "Automation"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "inactive",
+      role: "manager",
+      tags: ["collaborator"]
+    },
+    {
+      id: 24,
+      position: "Blockchain Developer",
+      name: "Vitalik Buterin",
+      department: "Emerging Technologies Department",
+      credentials: [
+        "Blockchain Innovation Award",
+        "Smart Contract Excellence"
+      ],
+      skills: ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "Cryptography"],
+      photo: EMPLOYEE_PHOTO_URL,
+      status: "active",
+      role: "developer",
+      tags: ["innovator"]
+    }
+  ];
 
-  {
-    id: 7,
-    position: "Mobile App Developer",
-    name: "Tim Cook",
-    department: "Mobile Development Department",
-    credentials: [
-      "Best Mobile App 2024",
-      "iOS Development Excellence Award"
-    ],
-    skills: ["Swift", "Kotlin", "React Native", "Firebase", "XCode"],
-    photo: billGatesPhoto,
-    status: "active",
-    role: "developer",
-    tags: ["innovator", "collaborator"]
-  },
-  {
-    id: 8,
-    position: "Security Analyst",
-    name: "Kevin Mitnick",
-    department: "Cybersecurity Department",
-    credentials: [
-      "Security Excellence Award 2024",
-      "Zero Vulnerability Detection"
-    ],
-    skills: ["Penetration Testing", "Network Security", "SIEM", "Cryptography", "Firewalls"],
-    photo: satyaNadellaPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["innovator"]
-  },
-  {
-    id: 9,
-    position: "Database Administrator",
-    name: "Michael Stonebraker",
-    department: "Data Management Department",
-    credentials: [
-      "Database Optimization Award 2024",
-      "Data Integrity Excellence"
-    ],
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "SQL Server"],
-    photo: evanYouPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["mentor"]
-  },
-  {
-    id: 10,
-    position: "QA Automation Engineer",
-    name: "James Bach",
-    department: "Quality Assurance Department",
-    credentials: [
-      "Quality Excellence Award 2024",
-      "Zero Production Bugs 2023"
-    ],
-    skills: ["Selenium", "Cypress", "Jest", "TestRail", "JIRA"],
-    photo: sarahConnorPhoto,
-    status: "remote",
-    role: "engineer",
-    tags: ["collaborator", "innovator"]
-  },
-  {
-    id: 11,
-    position: "Business Analyst",
-    name: "Indra Nooyi",
-    department: "Business Operations Department",
-    credentials: [
-      "Business Process Improvement Award",
-      "Stakeholder Satisfaction Excellence"
-    ],
-    skills: ["Business Analysis", "Process Mapping", "SQL", "Tableau", "Power BI"],
-    photo: andrewNgPhoto,
-    status: "active",
-    role: "manager",
-    tags: ["leadership", "collaborator"]
-  },
-  {
-    id: 12,
-    position: "Technical Writer",
-    name: "Ann Handley",
-    department: "Documentation Department",
-    credentials: [
-      "Best Technical Documentation 2024",
-      "Clarity and Precision Award"
-    ],
-    skills: ["Technical Writing", "Markdown", "Git", "Documentation", "API Docs"],
-    photo: sherylSandbergPhoto,
-    status: "active",
-    role: "designer",
-    tags: ["collaborator"]
-  },
-  {
-    id: 13,
-    position: "Full Stack Developer",
-    name: "Guido van Rossum",
-    department: "Web Development Department",
-    credentials: [
-      "Full Stack Excellence Award 2024",
-      "Python Contribution Recognition"
-    ],
-    skills: ["Python", "Django", "React", "PostgreSQL", "Docker"],
-    photo: billGatesPhoto,
-    status: "active",
-    role: "developer",
-    tags: ["innovator", "mentor"]
-  },
-  {
-    id: 14,
-    position: "Cloud Architect",
-    name: "Werner Vogels",
-    department: "Cloud Services Department",
-    credentials: [
-      "Cloud Architecture Excellence",
-      "Scalability Design Award"
-    ],
-    skills: ["AWS", "Terraform", "Kubernetes", "Microservices", "CI/CD"],
-    photo: satyaNadellaPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["leadership", "innovator"]
-  },
-  {
-    id: 15,
-    position: "Scrum Master",
-    name: "Jeff Sutherland",
-    department: "Agile Department",
-    credentials: [
-      "Scrum Implementation Excellence",
-      "Team Productivity Award"
-    ],
-    skills: ["Scrum", "Agile", "JIRA", "Team Leadership", "Retrospectives"],
-    photo: evanYouPhoto,
-    status: "active",
-    role: "manager",
-    tags: ["leadership", "collaborator"]
-  },
-  {
-    id: 16,
-    position: "Machine Learning Engineer",
-    name: "Yoshua Bengio",
-    department: "AI Research Department",
-    credentials: [
-      "ML Innovation Award 2024",
-      "Research Paper of the Year"
-    ],
-    skills: ["Python", "TensorFlow", "PyTorch", "MLOps", "Data Science"],
-    photo: sarahConnorPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["innovator", "mentor"]
-  },
-  {
-    id: 17,
-    position: "IT Support Specialist",
-    name: "Kevin Systrom",
-    department: "IT Support Department",
-    credentials: [
-      "Customer Satisfaction Award",
-      "Fast Resolution Excellence"
-    ],
-    skills: ["Helpdesk", "Networking", "Hardware", "Windows/Mac", "Ticketing"],
-    photo: andrewNgPhoto,
-    status: "inactive",
-    role: "engineer",
-    tags: ["collaborator"]
-  },
-  {
-    id: 18,
-    position: "Sales Engineer",
-    name: "Marc Benioff",
-    department: "Sales Department",
-    credentials: [
-      "Top Sales Performance 2024",
-      "Technical Sales Excellence"
-    ],
-    skills: ["Sales", "CRM", "Technical Demos", "Product Knowledge", "Negotiation"],
-    photo: sherylSandbergPhoto,
-    status: "active",
-    role: "manager",
-    tags: ["leadership"]
-  },
-  {
-    id: 19,
-    position: "Content Strategist",
-    name: "Seth Godin",
-    department: "Marketing Department",
-    credentials: [
-      "Content Strategy Award 2024",
-      "Best Marketing Campaign"
-    ],
-    skills: ["Content Strategy", "SEO", "Social Media", "Copywriting", "Analytics"],
-    photo: billGatesPhoto,
-    status: "remote",
-    role: "designer",
-    tags: ["innovator"]
-  },
-  {
-    id: 20,
-    position: "Systems Administrator",
-    name: "Linus Torvalds",
-    department: "Infrastructure Department",
-    credentials: [
-      "Systems Excellence Award",
-      "Infrastructure Reliability"
-    ],
-    skills: ["Linux", "Bash", "Networking", "Virtualization", "Monitoring"],
-    photo: satyaNadellaPhoto,
-    status: "active",
-    role: "engineer",
-    tags: ["innovator", "mentor"]
-  },
-  {
-    id: 21,
-    position: "Product Designer",
-    name: "Jony Ive",
-    department: "Product Design Department",
-    credentials: [
-      "Design Excellence Award 2024",
-      "User Experience Innovation"
-    ],
-    skills: ["Figma", "Sketch", "Prototyping", "User Research", "UI/UX"],
-    photo: evanYouPhoto,
-    status: "inactive",
-    role: "designer",
-    tags: ["innovator", "collaborator"]
-  },
-  {
-    id: 22,
-    position: "Data Engineer",
-    name: "DJ Patil",
-    department: "Data Management Department",
-    credentials: [
-      "Data Engineering Excellence",
-      "ETL Pipeline Innovation"
-    ],
-    skills: ["Python", "Spark", "Airflow", "SQL", "Data Warehousing"],
-    photo: sarahConnorPhoto,
-    status: "inactive",
-    role: "engineer",
-    tags: ["innovator"]
-  },
-  {
-    id: 23,
-    position: "HR Technology Specialist",
-    name: "Reid Hoffman",
-    department: "HR Department",
-    credentials: [
-      "HR Tech Implementation Award",
-      "Employee Experience Innovation"
-    ],
-    skills: ["HRIS", "Workday", "Recruitment Systems", "Analytics", "Automation"],
-    photo: andrewNgPhoto,
-    status: "inactive",
-    role: "manager",
-    tags: ["collaborator"]
-  },
-  {
-    id: 24,
-    position: "Blockchain Developer",
-    name: "Vitalik Buterin",
-    department: "Emerging Technologies Department",
-    credentials: [
-      "Blockchain Innovation Award",
-      "Smart Contract Excellence"
-    ],
-    skills: ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "Cryptography"],
-    photo: sherylSandbergPhoto,
-    status: "active",
-    role: "developer",
-    tags: ["innovator"]
-  }
-];
+  // ... rest of your component code remains exactly the same ...
 
   // Filter employees based on all criteria
   const filteredEmployees = employees.filter(employee => {
@@ -540,34 +535,34 @@ export default function DirectoryPage() {
         {/* Bottom Row */}
         <div className='w-[90%] bg-white rounded-b-xl justify-center items-center flex gap-5 p-5 shadow-md'>
           <SelectionBox 
-          test={[
-            {value: "", label: "Department"},
-            {value: "Web Development Department", label: "Web Development"},
-            {value: "Cloud Services Department", label: "Cloud Services"},
-            {value: "Product Design Department", label: "Product Design"},
-            {value: "AI Research Department", label: "AI Research"},
-            {value: "Infrastructure Department", label: "Infrastructure"},
-            {value: "Product Management Department", label: "Product Management"},
-            {value: "Mobile Development Department", label: "Mobile Development"},
-            {value: "Cybersecurity Department", label: "Cybersecurity"},
-            {value: "Data Management Department", label: "Data Management"},
-            {value: "Quality Assurance Department", label: "Quality Assurance"},
-            {value: "Business Operations Department", label: "Business Operations"},
-            {value: "Documentation Department", label: "Documentation"},
-            {value: "Agile Department", label: "Agile"},
-            {value: "IT Support Department", label: "IT Support"},
-            {value: "Sales Department", label: "Sales"},
-            {value: "Marketing Department", label: "Marketing"},
-            {value: "Emerging Technologies Department", label: "Emerging Technologies"}
-          ]}
-          value={department}
-          onChange={(e) => setDepartment(e.target.value)}
-        />
+            test={[
+              {value: "", label: "Department"},
+              {value: "Web Development Department", label: "Web Development"},
+              {value: "Cloud Services Department", label: "Cloud Services"},
+              {value: "Product Design Department", label: "Product Design"},
+              {value: "AI Research Department", label: "AI Research"},
+              {value: "Infrastructure Department", label: "Infrastructure"},
+              {value: "Product Management Department", label: "Product Management"},
+              {value: "Mobile Development Department", label: "Mobile Development"},
+              {value: "Cybersecurity Department", label: "Cybersecurity"},
+              {value: "Data Management Department", label: "Data Management"},
+              {value: "Quality Assurance Department", label: "Quality Assurance"},
+              {value: "Business Operations Department", label: "Business Operations"},
+              {value: "Documentation Department", label: "Documentation"},
+              {value: "Agile Department", label: "Agile"},
+              {value: "IT Support Department", label: "IT Support"},
+              {value: "Sales Department", label: "Sales"},
+              {value: "Marketing Department", label: "Marketing"},
+              {value: "Emerging Technologies Department", label: "Emerging Technologies"}
+            ]}
+            value={department}
+            onChange={(e) => setDepartment(e.target.value)}
+          />
           <SelectionBox 
             test={[
               {value: "", label: "Status"}, 
               {value: "active", label: "Active"},
-              {value: "inactive", label: "Inactive"},  // Added inactive
+              {value: "inactive", label: "Inactive"},
               {value: "on-leave", label: "On Leave"},
               {value: "remote", label: "Remote"}
             ]}
@@ -575,27 +570,27 @@ export default function DirectoryPage() {
             onChange={(e) => setStatus(e.target.value)}
           />         
           <SelectionBox 
-          test={[
-            {value: "", label: "Role"},
-            {value: "developer", label: "Developer"},
-            {value: "designer", label: "Designer"},
-            {value: "manager", label: "Manager"},
-            {value: "engineer", label: "Engineer"}
-          ]}
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
+            test={[
+              {value: "", label: "Role"},
+              {value: "developer", label: "Developer"},
+              {value: "designer", label: "Designer"},
+              {value: "manager", label: "Manager"},
+              {value: "engineer", label: "Engineer"}
+            ]}
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          />
           <SelectionBox 
-          test={[
-            {value: "", label: "Tag"},
-            {value: "leadership", label: "Leadership"},
-            {value: "mentor", label: "Mentor"},
-            {value: "innovator", label: "Innovator"},
-            {value: "collaborator", label: "Collaborator"}
-          ]}
-          value={tag}
-          onChange={(e) => setTag(e.target.value)}
-        />      
+            test={[
+              {value: "", label: "Tag"},
+              {value: "leadership", label: "Leadership"},
+              {value: "mentor", label: "Mentor"},
+              {value: "innovator", label: "Innovator"},
+              {value: "collaborator", label: "Collaborator"}
+            ]}
+            value={tag}
+            onChange={(e) => setTag(e.target.value)}
+          />      
           <button 
             className='bg-yellow-500 p-2 w-full border border-gray-300 rounded-xl hover:bg-yellow-600 transition-colors'
             onClick={handleClear}
