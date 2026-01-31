@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import DirectoryHeader from '../components/DirectoryNetworkingComponents/DirectoryHeader.jsx';
 import EmployeeCard from '../components/DirectoryNetworkingComponents/EmployeeCards.jsx';
 import SelectionBox from '../components/DirectoryNetworkingComponents/SelectionBox.jsx';
+// import ViewProfile from '../components/DirectoryNetworkingComponents/ViewProfile.jsx';
 import '../styles/pages/DirectoryPage.css';
 
 // Fixed photo URL for all employees
@@ -500,12 +501,14 @@ export default function DirectoryPage() {
   };
 
   return (
+    
     <div className="directory-container">
+      
       {/* Header */}
       <DirectoryHeader />
 
       {/* Search and Filter Bar */}
-      <div className='w-full justify-center items-center flex flex-col mb-8'>
+      <div className='w-full justify-center items-center flex flex-col mb-8 mt-8'>
         {/* Top Row */}
         <div className='w-[90%] bg-white rounded-t-xl justify-center items-center flex gap-5 p-5 border-b-2 shadow-md'>
           <div className='relative w-[70%]'>

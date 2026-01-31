@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useChat } from '../../context/ChatContext.jsx';
 
 // Helper function to get status badge colors
 const getStatusBadgeStyles = (status) => {
@@ -37,6 +39,8 @@ const getStatusBadgeStyles = (status) => {
 };
 
 export default function EmployeeCard({ employee }) {
+  const navigate = useNavigate();
+  const { openChat } = useChat();
   const statusStyles = getStatusBadgeStyles(employee.status);
 
   return (
@@ -119,10 +123,16 @@ export default function EmployeeCard({ employee }) {
       {/* Action Buttons */}
       <div className="action-buttons-container">
         <div className="action-buttons">
-          <button className="view-profile-btn">
+          <button 
+            className="view-profile-btn" 
+            onClick={() => navigate("/directory/view-profile", { state: { employee } })}
+          >
             View Profile
           </button>
-          <button className="connect-btn">
+          <button 
+            className="connect-btn"
+            onClick={() => openChat(employee)}
+          >
             Connect
           </button>
         </div>

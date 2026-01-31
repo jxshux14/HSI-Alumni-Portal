@@ -31,11 +31,13 @@ function SidebarSection({ title, items, collapsed, isAnchor, highlightPath }) {
               {item.icon}
             </span>
             {!collapsed && <span className="text-xs whitespace-nowrap">{item.label}</span>}
-            {!collapsed && highlightPath === item.path && (
-              <span className="ml-auto text-xs" aria-hidden>
-                ▾
-              </span>
-            )}
+            {!collapsed && highlightPath === item.path 
+            // && (
+            //   <span className="ml-auto text-xs" aria-hidden>
+            //     ▾
+            //   </span>
+            // )
+            }
           </NavLink>
         ))}
       </nav>
